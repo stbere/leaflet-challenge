@@ -19,7 +19,7 @@
 <body>
 
 <div class="header">
-  <br><img src="static/earthquake-text.png" alt="Header Image"><br>
+  <img src="static/earthquake-text.png" alt="Header Image"><br>
   <p1><b>The data provided by earthquakes.usgs.gov shows significant Earthquakes that have taken place in the last 30 days:</b></p1><br>
   <p2>The data used for this project can be found here: <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson" target="_blank">https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson</a></p2>
 </div>
@@ -42,22 +42,10 @@
 
 <script>
 	var mymap = L.map('map').setView([0, 0], 2);
-	
-	<!--Had to set map boundaries below otherwise webpage looked like it had multiple landmasses-->
-	
-	var southWest = L.latLng(-90, -180);
-	var northEast = L.latLng(90, 180);
-	var bounds = L.latLngBounds(southWest, northEast);
-	mymap.setMaxBounds(bounds);
-
-<!--Setting tiles so the map looks cool-->
-	
 	L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 		maxZoom: 19,
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(mymap);
-	
-<!--Setting a legend here for easier interpretation of data-->
 
 	var legend = L.control({ position: 'bottomright' });
 	legend.onAdd = function (map) {
@@ -74,8 +62,6 @@
 		return div;
 	};
 	legend.addTo(mymap);
-	
-<!--Populating the map with the earthquake data-->
 
 	fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson')
 		.then(function (response) {
@@ -95,7 +81,7 @@
 				}
 			}).addTo(mymap);
 		});
-<!--Magnitude colors here-->
+
 	function getColor(mag) {
     return mag >= 6 ? '#800026' :
         mag >= 5 ? '#BD0026' :
