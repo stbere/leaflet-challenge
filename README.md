@@ -1,7 +1,7 @@
 # leaflet-challenge
 
 The data selected for this challenge was significant earthquakes recorded within the last 30 days.
-Data can be found here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson" target="_blank">https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson
+Data can be found here: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson
 
 When the desired earthquake is selected, the following information will appear in a pop-up box:
     - Type of Earthquake
