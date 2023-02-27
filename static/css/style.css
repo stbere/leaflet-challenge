@@ -34,3 +34,27 @@ float: left;
 margin-right: 8px;
 opacity: 0.8;
 }
+
+.title-container {
+display: flex;
+justify-content: center;
+background-color: white;
+padding: 10px;
+margin-bottom: 20px;
+}
+
+.title {
+margin: 0;
+}
+
+.header {
+position: relative;
+text-align: center;
+}
+
+.header img {
+max-width: 100%;
+height: auto;
+margin: 0 auto;
+display: block;
+}

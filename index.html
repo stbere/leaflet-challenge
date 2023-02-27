@@ -18,6 +18,12 @@
 
 <body>
 
+<div class="header">
+  <img src="static/earthquake-text.png" alt="Header Image"><br>
+  <p1><b>The data provided by earthquakes.usgs.gov shows significant Earthquakes that have taken place in the last 30 days:</b></p1>
+<br>
+<br>
+
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -64,13 +70,13 @@
 			L.geoJSON(data, {
 				pointToLayer: function (feature, latlng) {
 					return L.circleMarker(latlng, {
-						radius: feature.properties.mag * 3,
+						radius: feature.properties.mag * 5,
 						fillColor: getColor(feature.properties.mag),
 						color: "#000",
 						weight: 1,
 						opacity: 1,
 						fillOpacity: 0.8
-					}).bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
+					}).bindPopup("Type: " + feature.properties.type + "<br>Magnitude: " + feature.properties.mag + "<br>Depth: " + feature.geometry.coordinates[2] + " km" + "<br>Location: " + feature.properties.place);
 				}
 			}).addTo(mymap);
 		});
